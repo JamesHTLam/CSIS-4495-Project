@@ -1,0 +1,28 @@
+{% extends "internal_layout.html" %}
+{% block title %}Import Excel Transactions{% endblock %}
+{% block content %}
+<div class="container mt-l" >
+<br><br>
+<h3 class="font-weight-bold text-center">IMPORT YOUR TRANSACTIONS FROM EXCEL</h1>
+<br><br>
+<div class="p-3 mb-2 bg-warning text-dark">Note: Only those CSV files from Mint.com are accepted for now.</div>
+<br><br>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="p-3 mb-2 bg-danger text-white">
+<p class="text-center font-weight-bold">{{message}}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form action = "{{ request.path }}" method = "post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="excelfile">Import Your Excel File below</label>
+        <input type="file" class="form-control-file" name="transaction_excel_file">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>    
+</div>
+<br><br>
+{% endblock %}

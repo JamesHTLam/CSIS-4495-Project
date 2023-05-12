@@ -1,0 +1,12 @@
+{% extends "internal_layout.html" %}
+{% block title %}Analysis{% endblock %}
+{% block content %}
+<div class="container mt-l" >
+<br><br>
+<h1 class="font-weight-bold">Summary of Your Expenditure</h1>
+<br><br>
+<iframe src="{{url_for('dash1')}}" style="width: 1100px; height: 1200px;"/>
+</div>
+<br><br>  
+
+{% endblock %}

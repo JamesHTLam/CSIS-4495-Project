@@ -1,0 +1,27 @@
+{% extends "external_layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container mt-l" >
+<br><br>
+<h3 class="font-weight-bold">ExpenseOnRec</h1>
+<br><br><br><br>
+<h1 class="font-weight-bold text-primary">Record all your expenses with ExpenseOnRec.</h1>
+<br><br>
+<p class="font-weight-bold text-sm-left">No. 1 web application for you to track your spending.</p>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <button type="button" class="btn btn-info btn-lg active"><a href="{{ url_for('register')}}">REGISTER</a></button>
+        </div>
+        <div class="col-md">
+            <p class="text-left font-weight-bold">OR, IF YOU HAVE AN ACCOUNT...</p>
+        </div>
+        <div class="col-md">
+            <button type="button" class="btn btn-info btn-lg active"><a href="{{ url_for('login')}}">LOGIN</a></button>
+        </div>
+    </div>
+</div>
+</div>
+<br><br>
+{% endblock %}

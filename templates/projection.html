@@ -1,0 +1,12 @@
+{% extends "internal_layout.html" %}
+{% block title %}Projection{% endblock %}
+{% block content %}
+<div class="container mt-l" >
+<br><br>
+<h1 class="font-weight-bold">Projection of Price level</h1>
+<br><br>
+<iframe src="{{url_for('dash2')}}" style="width: 1100px; height: 1200px;"/>
+</div>
+<br><br>  
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "internal_layout.html" %}
+{% block title %}Add Individual Transaction{% endblock %}
+{% block content %}
+<div class="container mt-l" >
+<br><br>
+<h3 class="font-weight-bold text-center">ADD YOUR TRANSACTIONS</h1>
+<br><br>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="p-3 mb-2 bg-danger text-white">
+<p class="text-center font-weight-bold">{{message}}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form action = "{{ request.path }}" method = "post">
+    <div class="form-group">
+        <label for="Date">Date</label>
+        <input type="date" class="form-control" name="date">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" name="description" placeholder="Description">
+    </div>
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <select class="form-control" name="category">
+            <option value="" disabled>CHOOSE FROM BELOW</option>
+            {% for transaction_category in transaction_categories %}
+            <option value="{{transaction_category}}">{{transaction_category}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Amount">Amount</label>
+        <input type="number" step="0.01" class="form-control" name="amount" placeholder="Amount">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>    
+</div>
+<br><br>
+{% endblock %}

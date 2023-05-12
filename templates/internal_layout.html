@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.2/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .internal_background{
+            background-color: #ADD8E6;
+        }
+        .internal_top_font{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        td{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+    <div class="container internal_top_font">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+	            <li class="nav-item">
+                    <a class="nav-link " href="{{ url_for('user_profile')}}">Profile</a>
+		        </li>
+                <li class="nav-item">
+		            <a class="nav-link" href="{{url_for('analysis')}}">Analysis</a>
+		        </li>
+                <li class="nav-item">
+		            <a class="nav-link" href="{{url_for('projection')}}">Inflation Projection</a>
+		        </li>
+                <li class="nav-item">
+		            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+		        </li>
+	        </ul>
+        </div>
+    </div>
+    </nav>
+    <div class="internal_background">
+    {% block content %}
+    {% endblock %}
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#transaction_table').DataTable({
+            order: [[ 0, 'desc' ]],
+            columnDefs: [{
+                targets: [4, 5],
+                orderable: false                
+            }]
+        });
+    });
+</script>
+</html>
