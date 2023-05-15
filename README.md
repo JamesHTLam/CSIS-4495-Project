@@ -2,11 +2,11 @@
 ## This is a web application that allow user to register and login to their account, and add expenditure record to it. Users can also see data visualization result generated from their expenditure records in the web application.  
 
 ## Tools
-### Programming: Python
-### Web Framework: Flask
-### Database: MySQL
-### Data Visualization: Dash, Plotly
-### Facial Recognition and Verification: Deepface 
+- Programming: Python
+- Web Framework: Flask
+- Database: MySQL
+- Data Visualization: Dash, Plotly
+- Facial Recognition and Verification: Deepface 
 
 ## 1. Image of the WebApp
 ### 1.1. Account Creation
